@@ -23,7 +23,10 @@ function Person(firstname, lastname) {
 var jane = new Person('Jane', 'Doe');
 console.log('Hello ' + jane.firstname);
 
-//prototype example
+/*prototype object on the function object of Person, attach greetHello method
+prototype of any objet created on Person object, so new Persons inherit that prototype
+down the prototype chain
+*/
 Person.prototype.greetHello = function() {
     console.log('Hello,' + this.firstname + ' ' + this.lastname);
 };
@@ -31,6 +34,10 @@ Person.prototype.greetHello = function() {
 var jim = new Person('Jim', 'Doe');
     console.log('Hello,' + jim.firstname + " " + jim.lastname);
 var julie = new Person('Julie', 'Doe');
+
+console.log(jim.__proto__);
+console.log(jane.__proto__);
+console.log(jim.__proto__ === jane.__proto__);
 
 jim.greetHello();
 julie.greetHello();
